@@ -1,0 +1,119 @@
+/************** "use strict” continued *******************/
+
+'use strict'
+
+this.table = "House Table";
+
+const clean = function() {
+    console.log(`${this.table} cleaned !!`);
+}
+
+clean();  // Error
+
+/************** Call function *******************/
+
+// If you can attach a context while calling the function:
+    a. You need not to assign the context to local variables
+    b. You can reuse the same function in various diff contexts
+
+'use strict'
+
+this.table = "House Table";
+
+const clean = function() {
+    console.log(`${this.table} cleaned !!`);
+}
+
+clean();  // Error
+
+clean.call(this); // "House Table cleaned !!"
+
+let obj = {
+    table: "Obj Table"
+}
+
+clean.call(obj); // "Obj Table cleaned !!"
+
+
+// passing params in call function
+
+'use strict'
+
+this.table = "House Table";
+
+const clean = function(name, name2, nam3) {
+    console.log(`${this.table} cleaned by ${name} !!`);
+}
+
+clean();  // Error
+
+clean.call(this, "Ritvi", "Adesh", "rakesh"); // "House Table cleaned !!"
+
+let obj = {
+    table: "Obj Table"
+}
+
+clean.call(obj, "Rijyug"); // "Obj Table cleaned !!"
+
+
+
+/************** Apply function *******************/
+
+'use strict'
+
+this.num = 10;
+
+const sum = (...paramsArray) => {
+  let res = 0;
+  for (let i = 0; i < paramsArray.length; i++) {
+    res += paramsArray[i]
+  }
+  return this.num + res;
+}
+
+var arrayOfParams = [20, 30, 40, 50, 60, 70];
+var result = sum.apply(this, arrayOfParams);
+
+console.log(result);
+
+
+/************** Bind function *******************/
+
+// Bind gives us another function which we can execute later
+
+
+'use strict'
+
+this.table = "House Table";
+
+const clean = function(name, name2, name3) {
+    console.log(`${this.table} cleaned by ${name}, ${name2} and ${name3} !!`);
+}
+
+clean.call(this, "Ritvi", "Adesh", "rakesh");  // you get an immediate output, clean function will be immediately executed
+
+var myBindFunction = clean.bind(this, "Ritvi"); // You dont get an immediate output here, clean function will not be executed immediately
+
+myBindFunction("Adesh", "Rakesh"); // clean function will be executed and you get the output
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

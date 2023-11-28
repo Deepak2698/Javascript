@@ -1,0 +1,27 @@
+	Agenda
+
+(1) Asynchronous programming -
+	a. callbacks - 
+		i. Callback function
+		ii. Higher order function
+	b. promises - 
+		i. States of a promise
+		ii. Handle a promise
+	c. async and await - 
+(2) IIFE - 
+(3) Query String - 
+(4) Object de-structuring -
+(5) DOM - 
+	a. DOM tree - 
+	b. DOM Manipulation - 
+(6) Form Validation - 
+(7) Concise functions - 
+(8) Spread operator - 
+objects - 
+Arrays - 
+(9) Rest operator - 
+
+
+
+
+

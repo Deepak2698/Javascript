@@ -1,0 +1,368 @@
+
+/******************* output statements in JS **********************/
+
+(1) console.log();
+(2) document.write();
+(3) innerHTML
+(4) window.alert() / alert();
+
+
+/******************* input statements in JS **********************/
+
+(1) window.confirm : will ask for a boolean (tell me yes or no)
+(2) window.prompt : user can enter free text (user can give descriptive inputs)
+
+
+/******************* Arrays statements in JS **********************/
+
+Array: is a contigous memory locations holding some data. datatype of the data may be different in each of the memory locations
+
+var array1 = []; // empty array
+var array2 = [
+    1, // Number
+    "Edureka",  // String
+    2, // Number
+    3, // Number
+    null, // null
+    undefined, // undefined
+    6, // Number
+    "Class", // String
+    true, // boolean
+    [], // array
+    [ // array
+        1,
+        2,
+        3
+    ], 
+    {}, // object
+    { // object
+        name: "abhishek",
+        class: "edureka"
+    }
+]
+
+arrays in JS are zero based indexed.
+
+var array3 = ["A", "B", "C", "D"]
+               0    1    2    3
+
+array3[0]; // first element of array
+
+
+/// length 
+
+array3.length; // gives the length of the array, 4
+array3[array3.length - 1]; // last element of the array
+
+
+/// push
+
+array3.push(1); // add item in the end of an array, ["A", "B", "C", "D", 1]
+
+
+/// pop
+
+array3.pop(); // remove an item from the end of an array, ["A", "B", "C", "D"]
+
+
+/// unshift
+
+array3.unshift(0); // add item in the start of an array, [0, "A", "B", "C", "D"]
+
+
+/// shift
+
+array3.shift(); // remove an item from the start of an array, ["A", "B", "C", "D"]
+
+
+/// filter
+
+var array4 = [1,2,3,4,5,6,7,8,9,10];
+
+function filterEven(item) {
+    console.log(item);
+    return item % 2 == 0;
+}
+
+var evenNumbers = array4.filter(filterEven);
+
+
+var array5 = [1,23, true, "abc"];
+
+function filterNumber(item) {
+    console.log(item);
+    return typeof item == 'number' || typeof item == 'string';
+}
+var numbersOnly = array5.filter(filterNumber);
+console.log(array5);
+console.log(numbersOnly);
+
+
+/// map
+
+var array6 = [1,2,3,4,5,6,7,8];
+
+function multiplyNumber(item){
+    return item * 10;
+}
+var resultArray6 = array6.map(multiplyNumber);
+console.log(array6);
+console.log(resultArray6);
+
+
+/// forEach
+
+var array6 = [1,2,3,4,5,6,7,8];
+
+function multiplyNumber(item){
+    return item * 10;
+}
+var resultArray6 = array6.forEach(multiplyNumber);
+console.log(array6);
+console.log(resultArray6);
+
+
+/// find
+
+var array10 = ["a", "b", "edureka", 1,4,true,null,undefined,{},[]];
+
+function search(item) {
+    return item == 'edureka';
+}
+var findResult = array10.find(search);
+
+console.log(findResult);
+
+
+/// concat
+
+var array7 = ['a', 'b', 'c'];
+
+var array8 = [1,2,3];
+
+var array9 = [true, false, true];
+
+array7 = array7.concat(array8, array9);
+
+
+/// slice
+
+var array11 = ["a", "b", "DiGi", 1,4,true,null,undefined,{},[]];
+
+var resultSlice = array11.slice(2, 5);
+
+console.log(resultSlice);
+
+
+/// sort
+
+var array12 = [3,6,1,78,23,43,56,111,431,8,0];
+function sortMyArray(a, b) {
+    return a - b;
+}
+var sortResult1 = array12.sort(sortMyArray);
+console.log(sortResult1);
+
+var array13 = ['b', 'z', 'a', 'f', 'e', 'g'];
+console.log(array13.sort());
+
+
+/****************** looping statements ********************/
+
+(1) for loop:
+
+    for (start; condition; iterator) {
+        // statements
+    }
+
+    when the array length is known to us, we use for loop
+
+    var array14 = ['b', 'z', 'a', 'f', 'e', 'g'];
+    const length = array14.length;
+
+    for(let i = 0; i < length; i++) {
+        console.log(array14[i]);
+    }
+
+
+(2) while loop:
+
+    while(condition) {
+        // statements
+    }
+
+    when the array length is NOT known to us, we use while loop
+
+    let i = 0;
+    while (i < 15) {
+        console.log(i);
+        i++;
+    }
+
+/****************** conditional statements ********************/
+
+are used to take decisions and control the flow of code execution
+
+(1) if
+
+if (condition) {
+    // statements
+}
+
+let isClassGoingOn = true;
+
+if (isClassGoingOn) {
+    console.log("learners are awake !!");
+}
+
+
+(2) if-else
+
+let isClassGoingOn = true;
+
+if (isClassGoingOn) {
+    console.log("learners are awake !!");
+} else {
+    console.log("learners are revising !!");
+}
+
+
+(3) nested if-else
+
+let isClassGoingOn = true;
+let module = 5;
+
+if (isClassGoingOn) {
+    console.log("learners are awake !!");
+    if (module == 5) {
+        console.log("Module 5 going on");
+    } else {
+        console.log("Module 5 completed");
+    }
+} else {
+    console.log("learners are revising !!");
+    if (module == 5) {
+        console.log("Module 5 going on");
+    } else {
+        console.log("Module 5 completed");
+    }
+}
+
+(4) if-else-if
+
+let isClassGoingOn = true;
+let isClassGoingToStart = false;
+
+if (isClassGoingOn) {
+    console.log("learners are awake !!");
+} else if (isClassGoingToStart) {
+    console.log("Class is going to start");
+} else {
+    console.log("learners are revising !!");
+}
+
+(5) switch
+
+switch(condition) {
+    case 'a':
+        // statements
+        break;
+    case 'b':
+        // statements
+        break;
+    case 'c':
+        // statements
+        break;
+    default:
+        // statements
+}
+
+
+/****************** Objects in JS ********************/
+
+var obj = {}; // empty object
+
+obj = {
+    <key>: <value>, // key-value pair
+    <key>: <value>,
+    <key>: <value>,
+    <key>: <value>,
+    <key>: <value>,
+    ..
+    ..
+
+    <key>: <value>
+}
+
+e.g.
+
+var obj1 = {
+    name: "Abhishek",
+    "class": "Edureka",
+    batch: 13,
+    subjects: [
+        'HTML',
+        'CSS',
+        'BS',
+        'JS',
+        'NodeJS',
+        'ExpressJS',
+        'MongoDB'
+    ],
+    myInnerObj: {
+        schedule: "weekend",
+        duration: 3
+    },
+    printName: function() {
+			console.log(this.name);
+    },
+    "class name": "MERN stack"
+}
+
+
+console.log(obj1.batch);
+
+console.log(obj1.printName);
+
+console.log(obj1["class name"]);
+
+console.log(Object.keys(obj1)); // array of keys of an object
+
+console.log(Object.values(obj1)); // array of values of an object
+
+
+/// array of Objects
+
+var array15 = [
+    {
+        name: "a1",
+        class: "MERN Stack"
+    }, 
+    {
+        name: "a2",
+        class: "MERN Stack"
+    }, 
+    {
+        name: "a3",
+        class: "MERN Stack"
+    }, 
+    {
+        name: "a4",
+        class: "MERN Stack"
+    }
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

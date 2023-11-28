@@ -1,0 +1,107 @@
+
+Javacript:
+
+(1) Makes the page interactive
+(2) is very fast - JS runs on the client machine
+(3) there is no compilations and no dependency on the servers in the BE
+(4) Interpreter
+
+Java NOT EQUAL TO Javacript, they are no way related
+
+        Java / c#           |       Javascript
+                            |
+(1)     Compiler            |       Interpreter 
+(2)     a BE language       |       a FE language
+(3)     Server involved     |       No Server involved
+
+
+
+(1) A programmer writes code in a programming language (high level)
+(2) The programmer code is converted to an intermediate code
+    a.
+    b.
+(3) This intermediate code then gets converted to machine code (low level) (0's and 1's)
+
+George Boole  -  0 and 1
+
+Compiler: reads the entire code and converts it as a whole chunk to the machine code at once.
+            * if your code has problems, gets detected early and code will not compile
+            * it is a slow process
+
+Interpreter: reads one line of code at a time and converts it into machine code.
+            * Even if your code has issues, you can still see the o/p till Interpreter reaches to bad code
+            * it is a fast process
+
+
+/********************* Variables in JS ************************/
+
+Vraiable: name given to memory location temporarily
+
+Variables can be created using the following keywords
+(1) var
+(2) let
+(3) const
+
+Scope of Variables : visibility of a Variable in a program
+
+line 1
+line 2 // create a variable
+..
+..
+
+line 10
+
+line 80 // can I use the variable in line 80 ? will the variable be accessible / visible here
+...
+
+
+..
+
+line 120
+
+(1) Global Scope: a vriable is visible throughout the program
+(2) local scope: means a variable has limited visibility. Local to some block of code
+
+
+/********************* Datatypes in JS ************************/
+
+Datatype: type of data a variable can hold
+
+(1) Primitive Datatype
+    - number (digits, integer, float, decimal)
+    - string (char, varchar, string)
+    - boolean (true:1, false:0)
+(2) Reference Datatype - 
+    - array: contigous locations of memory holding the data
+    - function (classes)
+    - object
+(3) other Data types
+    - undefined: variable whose value is not defined
+    - null: empty object
+
+
+/********************* Operators in JS ************************/
+
+(1) Arithmetic Operators
+    a. + : adds numbers
+    b. - : subtracts numbers
+    c. * : multiplies numbers
+    d. / : divides two numbers
+    e. % : it gives the remainder of a division operation
+    g. increment
+        i. post increment
+        ii. pre increment
+    h. decrement
+        i. post decrement
+        ii. pre decrement
+(2) Assigment Operators
+    a. =  used to assign a value
+    b. concise way of representation
+(3) Comparison Operators
+    a. == it compares the data value on both sides and NOT the data types
+    b. === it compares the data value on both sides as well as the data types
+    c. check rest in PPT
+(4) Logical Operators
+    a. && it checks the condition on both sides, if both are true, Then it returns true
+    b. || it checks the condition on both sides, if either one of them is true, Then it returns true
+    c. !  it gives you a negation / inversion of the value

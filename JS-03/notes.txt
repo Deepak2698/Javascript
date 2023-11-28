@@ -1,0 +1,343 @@
+
+/*************** Asynchronous programming ****************/
+
+{
+
+    ...
+    a(); // it takes 10s to execute, API Call --> resp --> b();
+    ...
+
+
+    ...
+
+    b();
+
+    ...
+
+}
+
+a. Callbacks
+b. promises
+c. async and await
+
+
+
+///// Callbacks
+
+const sum = function(a, b, func) {
+    let s = a + b;
+    func(s);
+}
+
+const printSum = function(su) {
+    console.log("Sum is : " + su);
+}
+
+sum(10, 20, printSum);
+
+// sum -> is a higher order function
+// printSum -> is a callback function
+
+Disadvantage: it goes into callback hell
+
+
+////// Promise
+
+// promise means an assurance
+
+
+let prom = new Promise(function(resolve, reject) {
+
+    // you can make an API call
+    // schedule some lines of code
+    // e.g. axios() // use it in react
+
+});
+
+prom.then(function(result) {
+
+}).catch(function(error) {
+
+});
+
+...
+...
+
+...
+...
+
+
+//// states of a promise:
+a. Resolved -> when you get a success
+b. Rejected -> when you get an error
+c. Pending -> When you are waiting for the response to come
+
+
+let prom = new Promise(function(resolve, reject) {
+  // 1. we can make an API call
+  // 2. We can schedule a code execution
+  console.log("Promise is in Pending state")
+  setTimeout(() => {
+    //console.log("Promise is resolved")
+    //resolve("Edureka");
+    console.log("Promise is rejected")
+    reject(null);
+  }, 3000);
+});
+
+prom.then(function(result) {
+  console.log("Success value : " + result);
+}).catch(function(error) {
+  console.log("Error value : " + error);
+});
+
+
+
+////// Async & await
+
+async function abc() {
+
+    let prom = new Promise(function(resolve, reject) {
+    // 1. we can make an API call
+    // 2. We can schedule a code execution
+    console.log("Promise is in Pending state")
+    setTimeout(() => {
+        //console.log("Promise is resolved")
+        //resolve("Edureka");
+        console.log("Promise is rejected")
+        reject(null);
+    }, 3000);
+    });
+
+    let response = await prom;
+
+    return response;
+
+}
+
+abc().then(function(result) {
+  console.log("Success value : " + result);
+}).catch(function(error) {
+  console.log("Error value : " + error);
+});
+
+
+
+/***************** IIFE *******************/
+
+IIFE: Immediately Invoked function expressions
+
+IIFE is a pattern
+
+On page load -> if you want to automatically execute some functionality without user interaction.
+Which means the code should automatically execute
+
+
+const checkUserLoggedIn = function() {
+    // check from cookies
+    isLoggedIn = false
+    if (isLoggedIn) {
+        //
+    } else {
+        // show the login popup
+    }
+}
+
+<button onClick="constcheckUserLoggedIn()">Click</button> 
+
+
+(function() {
+    // you can write some code here
+})();
+
+
+/***************** Query String *******************/
+
+
+
+// after the '?' there is information separated by '&'
+    e.g. courseId=1113
+         fromMasterCourse=0
+         batchId=19030
+        
+// <URL> ? <key=value> & <key=value> & <key=value> & .......
+
+
+
+/***************** Object de-structuring *******************/
+
+var obj = {
+    name: "Abhishek",
+    course: "MERN Stack",
+    portal: "Edureka",
+    age: 28
+}
+
+console.log(obj.name);
+console.log(obj[name]);
+
+
+/***************** DOM *******************/
+
+Document Object Model
+Tree like strcture to represent the entire HTML code as a tree with nodes and edges
+
+HTML file -> Browser converts -> DOM
+
+Document node
+    -> Root node <html>
+        -> Head node <head>
+            -> title node <title>
+                -> content (Zomato)
+        -> Body node <body>
+            -> h1 node <h1>
+                -> content (Welcome)
+
+Q. can we modify the DOM ?  - Yes
+
+/// HTML
+<html>
+
+  <head>
+
+  </head>
+
+  <body>
+    <h1 id="welcome-message">
+      Welcome
+    </h1>
+  </body>
+
+</html>
+
+//// JS
+var ele = document.getElementById("welcome-message");
+ele.innerHTML = "Welcome to Javascript";
+ele.setAttribute("style", "color:red");
+
+var elem = document.createElement('h2')
+elem.innerHTML = "Hello"
+document.body.appendChild(elem);
+
+
+/***************** Form Validation *******************/
+
+/// HTML
+<form action="" method="post" onsubmit="formSubmit()">
+  <label>Mobile</label>
+  <input type="text" id="mobileno">
+  <input type="submit">
+</form>
+
+
+/// JS
+function formSubmit() {
+  const ele = document.getElementById("mobileno");
+  const val = ele.value;
+
+  if (val.length != 10) {
+    alert("Invalid Mobile Number");
+  } else {
+    alert("Valid Mobile Number")
+  }
+}
+
+
+/******************** Concise functions ******************/
+
+var obj = {
+    firstName: "Deepak",
+    lastName: "Mishra",
+    course: "MERN Stack",
+    printFullName() {
+        console.log(this.firstName + " " + this.lastName);
+    }
+}
+
+obj.printFullName();
+
+
+/****************** Spread operator ***********************/
+
+// it is denoted with ... (tripple dot)
+
+///// in case of arrays
+
+var array1 = ['a', 'b', 'c'];
+var array2 = ['d', 'e', 'f'];
+var array3 = [1, 2, '3];
+
+var res = array1.concat(array2, array3); // ES5
+console.log(res); // ["a", "b", "c", "d", "e", "f", 1, 2, "3"]
+
+var res1 = [...array1, ...array2, ...array3]; // ES6 with spread operator
+console.log(res1); // ["a", "b", "c", "d", "e", "f", 1, 2, "3"]
+
+
+///// in case of objects
+
+var obj1 = {
+    name1: "Deepak",
+    course: "Fullstack"
+}
+
+var obj2 = {
+    name2: "Deepak",
+    course: "MERN"
+}
+
+var obj3 = {
+    name3: "Mr.",
+    ...obj1,
+    ...obj2
+}
+
+console.log(obj3);
+
+/*
+{   
+    course: "MERN",
+    name1: "Deepak",
+    name2: "Mishra",
+    name3: "Mr."
+}
+*/
+
+
+/************** Rest operator ***************/
+
+// it is denoted with ... (tripple dot)
+// it is used in function params
+
+
+const sum = function(a, b, ...allNumbers) {
+  let sumOfRest = 0
+  if (allNumbers.length > 0) {
+    sumOfRest = allNumbers.reduce((total, item) => {
+      return total + item;
+    })
+  }
+  return a + b + sumOfRest;
+}
+
+console.log(sum(10, 20));
+console.log(sum(10, 20, 30));
+console.log(sum(10, 20, 30, 40));
+console.log(sum(10, 20, 30, 40, 50));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

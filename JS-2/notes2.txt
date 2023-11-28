@@ -1,0 +1,16 @@
+	 Agenda 
+
+(1) Output statements in JS - TBD
+(2) Input statements in JS - 
+(3) Reference types in JS
+	a. Arrays
+		i. Array methods - 
+	b. Objects
+		i. Object methods - 
+		ii. Array of Objects - 
+	c. Classes - TBD in next class
+		i. this keyword 
+		ii. Objects of a class 
+(4) Looping statements - 
+(5) Conditional statements - 
+(6) escape characters - TBD in next class

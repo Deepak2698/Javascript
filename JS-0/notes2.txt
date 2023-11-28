@@ -1,0 +1,22 @@
+	 Agenda
+
+(1) Why Javascript - Done
+(2) How to include JS - Done
+(3) Variables in JS
+    a. var - Hoisting in JS - Done
+    b. let - Done
+    c. const - Done
+    d. Loose coupling of variables in JS 
+(4) Data Types in JS
+    a. Primitive - Done
+    b. Reference types - TBD 
+    c. Escape characters - TBD 
+    d. undefined - Done
+      e. null - Done
+    f. typeof operator - Done
+(5) Operators in JS 
+    a. Arithmetic operators - Done
+        i. Increment and decrement  - Done
+    b. Assignment operators - Done
+    c. Comparison operators - Done
+    d. Logical operators - Done

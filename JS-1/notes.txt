@@ -1,0 +1,327 @@
+
+
+/***************** ternary operator ***************/
+
+if (condition) {
+    // statements in if block
+} else {
+    // statements in else block
+}
+
+if (condition) {
+
+}
+
+(condition) ? (statements in if block) : (statements in else block); // valid
+
+(condition) ? (statements in if block); // NOT valid, throws an error
+
+
+if (condition) {
+    // statements in if block
+
+    if (condition) {
+        // statements in if block
+    } else {
+        // statements in else block
+    }
+
+} else {
+    // statements in else block
+}
+
+(condition) ? (condition) ? (statements in if block) : (statements in else block) : (statements in else block);
+
+
+/****************** Strings **********************/
+
+var str1 = "Welcome to Javascript tutorial";
+
+var str2 = 'Welcome to Javascript tutorial';
+
+var str3 = `Welcome to Javascript tutorial`;
+
+console.log(str3);
+console.log(typeof str3);
+
+
+// concatenate 2 strings
+
+var str4 = str1 + str2;
+console.log(str4);
+
+var str5 = "Welcome" + "   " +  // "Uncaught SyntaxError: Invalid or unexpected token"
+"to" + "   " + "to the tutorial
+!";
+
+console.log(str5);
+
+
+// template strings
+
+    -> we can introduce line breaks in the strings.
+    -> We substitute variable values
+
+var str6 = `Welcome
+to
+Tutorial
+!`;
+
+console.log(str6); 
+
+
+var str7 = "Student Count : ";
+var count = 50;
+
+var str8 = `${str7} is greater than ${count}`;
+
+console.log(str8);
+
+
+// String functions
+
+var str9 = 'Welcome_to_Tutorial';
+
+console.log(str9.length); // 20
+
+console.log(str9.chartAt(1)); // 'e'
+
+console.log(str9.slice(3, 7)); // 'come' is a new string returned
+
+console.log(str9.concat("again")); // 'Welcome_to_Tutorial_again'
+
+console.log(str9.lastIndexOf('e')); // 15
+
+console.log(str9.split('_')); // ["Welcome", "to", "Tutoeial", "0"]
+
+console.log(str9.substr(3, 7)); // "come_to"
+
+console.log(str9.substring(3, 7)); // "come"
+
+var str10 = "some string";
+str10.replace('s', 'z');  // "zome string"
+str10.replaceAll('s', 'z');  //"zome ztring"
+
+
+// slice vs substr vs substring
+
+console.log(str9.slice(3, 7)); // "come"
+console.log(str9.substr(3, 7)); // "come_to"
+console.log(str9.substring(3, 7)); // "come"
+
+console.log(str9.slice(7, 3)); // ""
+console.log(str9.substr(7, 3));  //  "_to"
+console.log(str9.substring(7, 3)); // "come"
+
+
+/****************** Math in JS **********************/
+
+var num = 2.4; // Number
+var num1 = 3;  // Number
+
+console.log(Math.floor(num)); // 2
+
+console.log(Math.ceil(num)); // 3
+
+console.log(Math.sqrt(16)); // 4
+
+console.log(Math.pow(2, 4)); // 16
+
+
+var radius = 20;
+var area = Math.PI * (Math.pow(radius, 2));
+console.log(area); // 1256.6370614359173
+
+
+/****************** Date in JS **********************/
+
+var date = new Date()
+
+console.log(date); // Sat Mar 27 2021 19:24:35 GMT+0530 (India Standard Time)
+
+console.log(date.getDate()); // 27
+
+console.log(date.getMonth()); // 2  months in JS are 0 based index
+
+console.log(date.getYear()); // 121  date in JS starts at 1900
+
+console.log(date.getFullYear()); // 2021
+
+console.log(date.getHours()); // 19 date follows 24 hour format
+
+console.log(date.getMinutes()); // 24
+
+console.log(date.getSeconds()); // 35
+
+console.log(date.getMilliseconds()); // 167
+
+console.log(date.getDay()); // 6  6th day of a week
+
+
+var d = new Date(2025, 06, 09, 00, 00, 00);
+console.log(d); // Wed Jul 09 2025 00:00:00 GMT+0530 (India Standard Time)
+
+
+Q. convert the date into 12 hour format ??
+
+
+
+/****************** DOM **********************/
+
+DOM: Document Object Model
+    -> made up of nodes
+    -> every element is called a node
+    -> it follows a tree structure
+
+Document
+    -> root / html tag
+        -> head
+            -> style
+            -> script
+            -> title
+            -> meta
+            -> link
+        -> body
+            -> div
+                -> div
+                    -> content (side)
+                -> div
+                    -> content (div1)
+                -> div
+                    -> content (div2)
+                -> div
+                    -> content (div3)
+
+/****************** Escape characters **********************/
+
+var str11 = "It's a Saturday"; // "It's a Saturday"
+var str12 = "His name is "John""; // Uncaught SyntaxError: Unexpected identifier"
+var str12 = 'His name is \"John\"'; // "His name is "John""
+
+console.log(str12);
+
+
+\' — Single quote
+\" — Double quote
+\\ — Backslash
+\b — Backspace
+\f — Form feed
+\n — New line
+\r — Carriage return
+\t — Horizontal tabulator
+
+
+/****************** Classes in JS **********************/
+
+ES5 - no classes in JS
+ES6 - JS introduced classes
+
+this - keyword is used to refer to the class
+
+class <name_of_class> {
+    // data members
+    // functionalities
+}
+
+
+// without constructor function
+class myClass {
+
+    // data members
+    name = "Rahul";
+    rollNo = 21;
+    subjects = [
+        "Maths",
+        "S.St.",
+        "Science",
+        "English",
+        "Hindi"
+    ];
+
+    // functionalities
+
+    printName() {
+        console.log(this.name);
+    }
+
+    addSubject(subject) {
+        this.subjects.push(subject);
+        this.printName();
+    }
+
+    getAllSubjects() {
+        return this.subjects;
+    }
+}
+
+// to execute the functionalities of a class create an object of that class
+var myObj = new myClass(); // it creates a new object of the class
+
+console.log(myObj.name); // "Rahul"
+console.log(myObj.rollNo); // 21
+console.log(myObj.subjects); // ["Maths", "S.St.", "Science", "English", "Hindi"]
+myObj.addSubject("Kannda");
+myObj.getAllSubjects(); // ["Maths", "S.St.", "Science", "English", "Hindi", "Kannda"]
+
+
+
+// With constructor function
+class myClass {
+
+    // data members
+    name;
+    rollNo;
+    subjects = [
+        "Maths",
+        "S.St.",
+        "Science",
+        "English",
+        "Hindi"
+    ];
+
+    // functionalities
+
+    constructor(_name, _rollNo) {
+        this.name = _name;
+        this.rollNo = _rollNo;
+    }
+
+    printName() {
+        console.log(this.name);
+    }
+
+    addSubject(subject) {
+        this.subjects.push(subject);
+        this.printName();
+    }
+
+    getAllSubjects() {
+        return this.subjects;
+    }
+}
+
+var myObj2 = new myClass("Amit", 31);
+console.log(myObj2.name); // "Amit"
+console.log(myObj2.rollNo); // 31
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

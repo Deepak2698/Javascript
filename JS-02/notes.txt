@@ -1,0 +1,307 @@
+/***************** Inner functions *******************/
+
+'use strict'
+
+this.table = "Window table";
+
+const clean = function() {
+    console.log(`${this.table} cleaned !!`);
+
+    const doubleClean = function() {
+        console.log(`${this.table} Double cleaned !!`);
+
+
+        const trippleClean = function() {
+            console.log(`${this.table} Tripple cleaned !!`);
+        }
+
+        trippleClean.call(this);
+    }
+
+    doubleClean.call(this);
+}
+
+clean.call(this);
+
+
+// Use of arrow functions
+
+const clean = () => {
+    console.log(`${this.table} cleaned !!`);
+
+    const doubleClean = () => {
+        console.log(`${this.table} Double cleaned !!`);
+
+
+        const trippleClean = () => {
+            console.log(`${this.table} Tripple cleaned !!`);
+        }
+
+        trippleClean();
+    }
+
+    doubleClean();
+}
+
+clean();
+
+
+
+/***************** this keyword in constructor *******************/
+
+class Student {
+    name;
+    rollNumber;
+
+    constructor(nameParam, rollParam) {
+        this.name = nameParam;
+        this.rollNumber = rollParam;
+    }
+}
+
+let obj = new Student("Abhishek", 1);
+console.log(obj);
+
+
+
+/***************** cookies *******************/
+
+
+function createMyCookie(username, site) {
+    document.cookie = `username=${username}; site=${site}`;
+}
+
+createMyCookie("abhishek_saini@live.com", "microsoft.com")
+
+function readCookies() {
+    const data = document.cookie;
+    const allCookies = data.split(';'); // array of all the cookies
+}
+
+
+/***************** local storage and session storage *******************/
+
+-> Web storages
+-> Stored on client's computer
+-> They have much more capacity than the cookies
+-> Unlike cookies, their contents are not shared with the server
+-> data is stored as key, value pairs
+
+Local storage: Even if you close the browser, the data stored inside local storage is safe
+Session storage: Even if you refresh the page the data is safe BUT when you close the bowser / tab, the data stored in session storage will be lost
+
+
+function setLocalStorage(username, site) {
+    localstorage.setItem("username", username);
+    localstorage.setItem("site", site);
+}
+
+setLocalStorage("abishek", "microsoft");
+
+
+function getLocalStorage() {
+    return localstorage.getItem("username");
+}
+
+const storedUserName = getLocalStorage();
+
+
+function setSessionStorage(username, site) {
+    sessionStorage.setItem("username", username);
+    sessionStorage.setItem("site", site);
+}
+
+setSessionStorage("abishek", "microsoft");
+
+
+function getsessionstorage() {
+    return sessionStorage.getItem("username");
+}
+
+const storedUserName = getsessionstorage();
+
+
+Shopping website:
+    -> Cart
+
+/************ JSON Format *************/
+
+(1) XML
+    <user>
+        <username>Abhishek</username>
+        <age>28</age>
+    </user>
+    <user>
+        <username>Amit</username>
+        <age>25</age>
+    </user>
+
+(2) JSON : JavaScript Object Notation
+    {
+        users: [
+            {
+                username: "Abhishek",
+                age: 28
+            },
+            {
+                username: "Amit",
+                age: 25
+            }
+        ]
+
+        seoondUSER[
+            {
+
+            }
+        ]
+    }
+
+CRUD - Create Read Update Delete
+
+    get - Read
+    post - Create/Write
+    del - Deleting
+    Put - Update
+
+
+(3) ....
+
+
+/************ Dictionary in JS *************/
+
+-> dictionary is a key value pair
+-> in JS we create key, value pairs with the help of objects
+
+let obj = {
+    name: "Deepak",
+    class: "Javascript",
+    school name: "DAV",
+    rollNo: 1
+}
+
+console.log(obj.name);
+console.log(obj["school name"]);
+
+
+/************ Scheduling *************/
+
+(1) timeout - you execute a piece of code only once after a set time out
+        e.g. after 15 minutes I will logout the user
+
+        setTimeout(() => {
+            // some code
+            console.log("inside timeout")
+        }, 5000); // 5 seconds
+
+(2) interval - you will execute a piece of code after every set interval
+        e.g. in evry 3 seconds I will check for a new email
+
+
+        setInterval(() => {
+            // some code
+            console.log("inside interval");
+        }, 3000)
+
+
+
+/************ Event Handling *************/
+
+<button onClick="buttonClickHandler()">
+Click Me!!
+</button>
+<input type="text" onChange="onTextChange(event)">
+
+
+function buttonClickHandler() {
+	alert("Button clicked !!!")
+}
+
+function onTextChange(event) {
+	console.log(event.target.value);
+}
+
+
+/************ Exception Handling *************/
+
+try {
+    // code which can throw an exception / Error
+    // API Call
+
+} catch (exception) {
+    // another logic on exception
+    // Also make another API call to a diff endpoint
+    console.log(exception);
+
+} finally {
+    // this code will always
+    
+}
+
+
+try {
+  var a = b + 10;
+} catch (exception) {
+  console.log(exception);
+} finally {
+  console.log("This block always runs");
+}
+
+
+
+Asiignment 3:
+
+Q1.
+
+class restaurantManager {
+    restaurantList = [
+        {
+            name: "KFC",
+            address: "Central Delhi",
+            city: "New Delhi"
+        },
+        {
+            name: "Domino's",
+            address: "MG Road",
+            city: "Bangalore"
+        },
+        {
+            name: "Subway",
+            address: "Bandra",
+            city: "Mumbai"
+        },
+    ]
+
+    printAllRestaurantNames() {
+        this.restaurantList.forEach((item) => {
+            console.log(item.name);
+        })
+    }
+
+    filterRestaurantByCity(city) {
+        this.restaurantList.filter(item => {
+            return item.city == city;
+        })
+    }
+}
+
+
+Q2.
+
+let restaurantName = "Punjabi Tadka"
+
+let orderData = {
+    'Below 500': 20,
+    '500-1000': 29,
+    '1000-1500': 30,
+    '1500-2000': 44,
+    'Above 2000': 76
+};
+
+a.
+var totalOrdersArray = Object.values(orderData); // [20, 29, 30, 44, 76]
+
+b. 
+var orderProportionsKeys = Object.keys(orderData); // array of all the keys
+var orderProportions =  orderProportionsKeys.length;
+
+c.

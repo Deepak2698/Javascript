@@ -1,0 +1,161 @@
+/****************** ES5 vs ES6 *********************/
+
+ES6: intorduced in 2015
+
+ES: ECMA Script
+ECMA: European Computer Manufacturer's Association
+    -> This agency manages the JS standards and rules
+
+1997-2015: ES5
+2015: ES6, ES2015 = ES5 + lot of new features
+
+(1) let and const
+(2) arrow functions
+(3) classes along with this keyword
+(4) default params
+(5) template strings
+(6) promises
+(7) spread operator, rest operator and object destructuring
+(8) modules
+
+
+/*************** functional scope vs block scope ***************/
+
+Scope: refers to the visibility of a variable
+
+var a = 10;
+
+function name1() {
+    let b = 20;
+    var c = 30;
+
+    if (true) {
+        let d = 40;
+        var e = 50;
+    }
+
+    console.log(a); // 10, lexical scoping
+    console.log(b); // 20, block scope
+    console.log(c); // 30, functional scope
+    console.log(d); // Error: d has a block scope
+    console.log(e); // 50, e has a functional scope
+}
+
+name1();
+
+console.log(a); // 10, functional scope
+console.log(b); // Error, block scope
+console.log(c); // Error, functional scope
+console.log(d); // Error, block scope
+console.log(e); // Error, functional scope
+
+
+/****************** Issues with var keyword *********************/
+
+(1) functional scope: discussed above
+(2) hoisting: to take to the top
+
+console.log(a); // undefined
+var a = 10;
+
+console.log(b); // Uncaught ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+
+
+/****************** var VS let VS const *********************/
+
+var:
+    1. it has a functional scope
+    2. allows hoisting
+    3. Mutable
+
+let:
+    1. it has a block scope
+    2. Does NOT allow hoisting
+    3. Mutable
+
+const:
+    1. it has a block scope
+    2. Does NOT allow hoisting
+    3. IM-Mutable
+
+
+/****************** default params *********************/
+
+function sum(a, b) {
+    return a + b;
+}
+
+console.log(sum(10, 20)); // 30
+console.log(sum(10)); // NaN
+
+function sum1(a = 0, b = 0) {
+    return a + b;
+}
+
+console.log(sum1(10, 20)); // 30
+console.log(sum1(10)); // 10
+
+
+/****************** arrow functions *********************/
+
+function name2() {
+ //
+}
+name2();
+
+
+const name3 = function() {
+ //
+}
+name3();
+
+
+
+const name4 = () => {
+    //
+}
+name4();
+
+
+
+var array = [1,2,3,4,5];
+
+function mapper(num) {
+    return num * 2;
+}
+var result = array.map(mapper);
+
+var result = array.map((num) => {
+    return num * 2;
+});
+
+
+/****************** Classes in JS *********************/
+
+
+class <name_of_class> {
+    // data members
+    // functionalities
+}
+
+e.g.
+
+class restaurantManager {
+    // data values
+    restaurantList = [
+        { name: "KFC", location: "Rajiv Chowk", city: "Delhi" },
+        { name: "Subway", location: "BKC", city: "Mumbai" },
+        { name: "Domino's", location: "MG Road", city: "Bangalore" }
+    ];
+
+    // functionality
+    printAllNames() {
+        this.restaurantList.forEach((kavya) => {
+            console.log(kavya.name);
+        });
+    }
+}
+
+let obj = new restaurantManager();
+obj.printAllNames();

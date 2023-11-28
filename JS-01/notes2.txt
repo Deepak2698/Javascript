@@ -1,0 +1,20 @@
+Agenda 
+
+(1) "use strict” - strictly follow the boundaries 
+	a. call function - 
+	b. apply function - 
+	c. bind function - 
+(2) this keyword with inner function 
+(3) this keyword in constructor 
+(4) call, apply, bind - very important - 
+(5) local storage 
+(6) session storage 
+(7) cookies 
+(8) assignment Status ?
+(9) Poll after topic
+    1: understood
+    2: Not understood
+(10) Feedback - excellent 
+
+
+
