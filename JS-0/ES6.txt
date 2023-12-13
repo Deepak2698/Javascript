@@ -151,8 +151,8 @@ class restaurantManager {
 
     // functionality
     printAllNames() {
-        this.restaurantList.forEach((kavya) => {
-            console.log(kavya.name);
+        this.restaurantList.forEach((pinky) => {
+            console.log(pinky.name);
         });
     }
 }

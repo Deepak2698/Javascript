@@ -2,8 +2,8 @@
 
 var num8 = 80; // Outer scope
 
-function printMyMessage(message) {
-    console.log(message);
+function printMyMessage(tanvi) {
+    console.log(tanvi);
 }
 
 function externalMessage() {
@@ -34,8 +34,8 @@ function externalMessage() {
     console.log(num8); // inner scope; Lexical scoping;
     console.log(num9); // 90, functional scope
 
-    let message = "Welcome to class !!";
-    printMyMessage(message);
+    let swaroop = "Welcome to class !!";
+    printMyMessage(swaroop);
 }
 
 // console.log(num5); // Uncaught ReferenceError: num5 is not defined

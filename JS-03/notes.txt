@@ -79,7 +79,7 @@ let prom = new Promise(function(resolve, reject) {
   console.log("Promise is in Pending state")
   setTimeout(() => {
     //console.log("Promise is resolved")
-    //resolve("Edureka");
+    //resolve("Education");
     console.log("Promise is rejected")
     reject(null);
   }, 3000);
